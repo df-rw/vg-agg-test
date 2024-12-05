@@ -97,21 +97,12 @@ const plotWithAggregateExpression = vg.plot(
 
 // Plot with filter and expression applied.
 const plotWithFilterAndAggregateExpression = vg.plot(
-    vg.lineY(vg.from('data', {
-        orderBy: 'ts',
-    }), {
+    vg.lineY(vg.from('data'), {
         x: 'ts',
         y: vg.avg('r').where(vg.eq('state', stateFilter)).orderby('ts').rows(aggregateExpression),
     }),
     vg.width(width),
     vg.height(100),
-);
-```
-
-```js
-console.log(
-   vg.from('data'),
-    vg.avg('r').where(vg.eq('state', stateFilter)).orderby('ts').rows(aggregateExpression)
 );
 ```
 
